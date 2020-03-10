@@ -30,3 +30,26 @@ it should use today’s date to get the month and year.
 import sys
 import calendar
 from datetime import datetime
+
+
+# print(sys.argv)
+# print(len(sys.argv))
+args_length = len(sys.argv)
+if args_length > 3:
+    print('Too many arguments. Proper usage is: 14_cal.py [month] [year]')
+elif args_length == 3:
+    # print('Do for 2 inputs')
+    calendar.prmonth(int(sys.argv[2]), int(sys.argv[1]))
+elif args_length == 2:
+    # print('Do for 1 input')
+    year = datetime.today().year
+    # print(f'this is the year: {year}')
+    # print(f'this is the year type: {type(year)}')
+    calendar.prmonth(year, int(sys.argv[1]))
+else:
+    print('Do for no inputs')
+    year = datetime.today().year
+    month = datetime.today().month
+    # print(f'this is the month: {month}')
+    # print(f'this is the month type: {type(month)}')
+    calendar.prmonth(year, month)
